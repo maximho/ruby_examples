@@ -15,3 +15,20 @@ num_array.each do |num|
 end
 
 puts highest_number
+ 
+class AllVowels
+	include Enumerable
+	@@vowels = %w{a e i o u}
+	def each
+		@@vowels.each {|v| yield v}
+	end
+end
+
+x = AllVowels.new
+x.each {|i| puts i}
+puts x.collect {|i| i + "x"}
+puts x.detect {|i| i > "j"}
+puts x.select {|i| i > "j"}
+puts x.sort
+puts x.max 
+puts x.min 
